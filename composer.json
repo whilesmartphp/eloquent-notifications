@@ -1,0 +1,54 @@
+{
+    "name": "whilesmart/eloquent-notifications",
+    "description": "Polymorphic notifications for Laravel: in-app, email and push delivery with per-type and per-channel preferences and one-click unsubscribe.",
+    "type": "library",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        { "name": "Whilesmart Team" }
+    ],
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^11.0|^12.0",
+        "whilesmart/eloquent-model-configuration": "^1.0",
+        "whilesmart/eloquent-owner-access": "^1.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0|^10.0",
+        "laravel/pint": "^1.22",
+        "fakerphp/faker": "^1.24"
+    },
+    "config": {
+        "platform": {
+            "php": "8.2"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Whilesmart\\Notifications\\": "src/",
+            "Whilesmart\\Notifications\\Database\\Factories\\": "database/factories/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Whilesmart\\Notifications\\NotificationsServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/testbench package:test",
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "pint": ["./vendor/bin/pint"],
+        "pint:test": ["./vendor/bin/pint --test"]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
